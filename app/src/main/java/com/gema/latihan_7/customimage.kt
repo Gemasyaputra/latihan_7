@@ -24,7 +24,7 @@ class customimage : AppCompatActivity() {
         rv_buah.layoutManager = GridLayoutManager(this, 1,
             GridLayoutManager.VERTICAL,false)
 
-        val adapter = buahadapter(MockList.getmodel() as ArrayList<modelbuah>)
+        val adapter = buahadapter(MockList.getmodel() as ArrayList<modelbuah>, this)
         rv_buah.adapter = adapter
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
