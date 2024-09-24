@@ -6,27 +6,50 @@
     android:layout_height="match_parent"
     tools:context=".MovieDetailActivity">
 
-    <ImageView
-        android:id="@+id/imgMovieDetail"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:foregroundGravity="center"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@+id/txtMovieDetail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/txtMovieDetail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/imgMovieDetail"
-        android:layout_margin="16dp"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imgMovieDetail" />
+        <ImageView
+            android:id="@+id/imgMovieDetail"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_margin="16dp"
+            android:foregroundGravity="center"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/txtMovieDetail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtMovieDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgMovieDetail" />
+
+        <TextView
+            android:id="@+id/txtDetailrelease"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="tanggal realese : 20 november 2021"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/txtDetailSinopis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Di dunia Avatar, bercerita tentang perjalanan seorang anak bernama Aang, yang menjadi Avatar terakhir, penerus dari siklus Avatar yang mampu mengendalikan keempat elemen—air, tanah, api, dan udara. Setelah menghilang selama 100 tahun, Aang terbangun dari sebuah bongkahan es bersama teman setianya, Appa, bison terbangnya. Dunia yang ia tinggalkan telah berubah drastis; Bangsa Api memulai peperangan besar untuk menaklukkan seluruh dunia. Aang, bersama teman-teman barunya, Katara, seorang pengendali air, dan Sokka, kakaknya yang penuh strategi, harus berkeliling dunia mempelajari semua elemen dan menghentikan Raja Api yang tiran. Meski Aang adalah sosok yang riang dan penuh semangat, perjalanan ini penuh tantangan karena tanggung jawab besar yang ia emban sebagai Avatar, satu-satunya harapan untuk memulihkan keseimbangan dunia." />
+
+    </LinearLayout>
+
+
 </RelativeLayout>

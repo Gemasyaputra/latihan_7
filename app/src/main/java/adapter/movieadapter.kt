@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.gema.latihan_7.MovieDetailActivity
@@ -20,7 +19,7 @@ class movieadapter constructor(
 ) : RecyclerView.Adapter<movieadapter.MyViewHolder>() {
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val txtMovie: TextView = itemView.findViewById(R.id.txtMovie)
+        val txtMovie: TextView = itemView.findViewById(R.id.txtMovieDetail)
         val imgMovie: ImageView = itemView.findViewById(R.id.imgMovie)
         val cardView: CardView = itemView.findViewById(R.id.cardView)
     }
@@ -36,17 +35,23 @@ class movieadapter constructor(
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.txtMovie.text = movieList[position].title
-        holder.imgMovie.setImageResource(movieList[position].image)
+        val movie = movieList[position]
+
+        // Set data ke tampilan
+        holder.txtMovie.text = movie.title
+        holder.imgMovie.setImageResource(movie.image)
 
         // Ini ketika item di klik
         holder.cardView.setOnClickListener {
-            // Intent untuk pindah ke MovieDetailActivity
             val intent = Intent(context, MovieDetailActivity::class.java).apply {
-                putExtra("MOVIE_TITLE", movieList[position].title)
-                putExtra("MOVIE_IMAGE", movieList[position].image)
+                putExtra("MOVIE_TITLE", movie.title)
+                putExtra("MOVIE_IMAGE", movie.image)
+                putExtra("tanggal", movie.tanggal)
+                putExtra("sinopsis", movie.sinopsis)
             }
             context.startActivity(intent)
+
         }
     }
 }
+

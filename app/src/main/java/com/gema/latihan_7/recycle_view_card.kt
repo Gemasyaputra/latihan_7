@@ -1,14 +1,12 @@
 package com.gema.latihan_7
 
 import adapter.movieadapter
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import model.modelmovie
-
 
 class RecycleCardMovie : AppCompatActivity() {
 
@@ -21,39 +19,38 @@ class RecycleCardMovie : AppCompatActivity() {
         setContentView(R.layout.activity_recycle_view_card)
 
         // Inisialisasi RecyclerView
-        recyclerView = findViewById(R.id.rvMovieList) as RecyclerView
+        recyclerView = findViewById(R.id.rvMovieList)
         movieAdapter = movieadapter(this, movieList)
-        val layoutManager: RecyclerView.LayoutManager = GridLayoutManager(this, 2)
-        recyclerView!!.layoutManager = layoutManager
-        recyclerView!!.adapter = movieAdapter
+        recyclerView?.apply {
+            layoutManager = GridLayoutManager(this@RecycleCardMovie, 2)
+            adapter = movieAdapter
+        }
 
         prepareMovieList()
-
-        // Set padding untuk edge-to-edge
-
     }
 
     // Mengisi daftar film ke dalam list
     private fun prepareMovieList() {
-        var movie = modelmovie("Inception", R.drawable.inception)
+        var movie = modelmovie("Inception", R.drawable.inception, "20 November 2021", getString(R.string.sinopsis1 ))
         movieList.add(movie)
-        movie = modelmovie("avatar", R.drawable.avatar)
+        movie = modelmovie("Avatar", R.drawable.avatar, "20 November 2021",  getString(R.string.sinopsis2))
         movieList.add(movie)
-        movie = modelmovie("batman", R.drawable.batman)
+        movie = modelmovie("Batman", R.drawable.batman, "20 November 2021,", getString(R.string.sinopsis3))
         movieList.add(movie)
-        movie = modelmovie("end game", R.drawable.end_game)
+        movie = modelmovie("End Game", R.drawable.end_game, "20 November 2021",getString(R.string.sinopsis1))
         movieList.add(movie)
-        movie = modelmovie("Hulk", R.drawable.hulk)
+        movie = modelmovie("Hulk", R.drawable.hulk, "20 November 2021", getString(R.string.sinopsis2))
         movieList.add(movie)
-        movie = modelmovie("jurassic park", R.drawable.jurassic_world)
+        movie = modelmovie("Jurassic Park", R.drawable.jurassic_world, "20 November 2021", getString(R.string.sinopsis3))
         movieList.add(movie)
-        movie = modelmovie("jumanji", R.drawable.jumanji)
+        movie = modelmovie("Jumanji", R.drawable.jumanji, "20 November 2021",getString(R.string.sinopsis1))
         movieList.add(movie)
-        movie = modelmovie("Lucy", R.drawable.lucy)
+        movie = modelmovie("Lucy", R.drawable.lucy, "20 November 2021", getString(R.string.sinopsis2))
         movieList.add(movie)
-        movie = modelmovie("spiderman", R.drawable.spider_man)
+        movie = modelmovie("Spiderman", R.drawable.spider_man, "20 November 2021", getString(R.string.sinopsis3))
         movieList.add(movie)
 
-        movieAdapter!!.notifyDataSetChanged()
+        movieAdapter?.notifyDataSetChanged()
     }
+
 }
